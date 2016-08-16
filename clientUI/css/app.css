@@ -1,0 +1,10 @@
+.scaleimg{
+    width:100%;
+}
+.top10{
+    margin-top: 10px;
+}
+
+img.img-thumbnail{
+    cursor: pointer;
+}

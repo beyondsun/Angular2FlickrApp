@@ -1,0 +1,15 @@
+<div class="container">
+<h1>Flickr Sun</h1>
+Displays the image gallery based on search results from Flickr API. Click on the images to see it in full size:
+ <input class="form-control" [(ngModel)]="searchTag">
+ <button class="btn btn-primary top10" (click)="searchPics()">Search For Tags</button>
+ 
+     <div class="row">
+<div class="col-md-4" *ngFor="let photo of photos; let idx=index">
+    <p>{{photo.author}}</p>
+    <img class="img-responsive img-thumbnail" src="{{photo.src}}" (click)="clickPic(idx)">
+ </div>
+ </div>
+ </div>
+
+<photo-modal [photoModal]="currentPic"></photo-modal>
