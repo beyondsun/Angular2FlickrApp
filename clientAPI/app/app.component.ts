@@ -21,8 +21,7 @@ var _isNotMobile = (function() {
   templateUrl: (_isNotMobile())?'../../clientUI/templates/html_photoContainer.html':'../../clientUI/templates/mhtml_photoContainer.html'
 })
 export class AppComponent { 
-    
-    url:string="http://api.flickr.com/services/feeds/photos_public.gne";
+        
     public searchTag:string="";
     currentPic:any={};
     photos=[];
@@ -32,7 +31,8 @@ export class AppComponent {
     }
     
     searchPics():void{
-        this.flickrService.getPics().then(
+        this.photos.splice(0);
+        this.flickrService.getPics(this.searchTag).then(
             data =>{this.photos = data;console.log(this.photos);}
         );               
     }

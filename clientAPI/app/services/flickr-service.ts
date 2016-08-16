@@ -5,19 +5,17 @@ import {Jsonp, JSONP_PROVIDERS} from '@angular/http'
 @Inject('Jsonp')
 export class FlickrService{
     
-    url:string="http://api.flickr.com/services/feeds/photos_public.gne";
-    public searchTag:string="";
-    currentPic:any={};
+    url:string="http://api.flickr.com/services/feeds/photos_public.gne";        
     photos=[];
     
     constructor(public jsonp: Jsonp){
         
     }
     
-    getPics():Promise<any[]>{
+    getPics(seacrhTags: string):Promise<any[]>{
         
         return new Promise((resolve, reject) => {
-        var jsonpResp:any = this.jsonp.get(this.url+"?tags="+this.searchTag+"&format=json&jsoncallback=JSONP_CALLBACK");          
+        var jsonpResp:any = this.jsonp.get(this.url+"?tags="+seacrhTags+"&format=json&jsoncallback=JSONP_CALLBACK");          
         jsonpResp.map(res => res.json())      
         .subscribe(
                data =>{data.items.forEach(photo=>{
