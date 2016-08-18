@@ -5,4 +5,6 @@ Displays the image gallery based on search results from Flickr API
 Node
 
 ### Run
+cmd /c AppStart.bat
+or
 npm start
